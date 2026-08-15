@@ -29,7 +29,8 @@ if (galleryItems.length && galleryFilters.length) {
     currentFilter = filter;
     galleryFilters.forEach(btn => btn.classList.toggle('is-active', btn.dataset.filter === filter));
     galleryItems.forEach(item => {
-      const show = filter === 'all' || item.dataset.category === filter;
+      const categories = (item.dataset.category || '').split(/\s+/);
+      const show = filter === 'all' || categories.includes(filter);
       item.hidden = !show;
     });
     visibleItems = galleryItems.filter(item => !item.hidden);
@@ -94,7 +95,7 @@ if (galleryItems.length && galleryFilters.length) {
       renderLightbox();
     };
 
-    galleryItems.forEach(item => item.addEventListener('click', () => openLightbox(item)));
+    galleryItems.filter(item => item.dataset.full).forEach(item => item.addEventListener('click', () => openLightbox(item)));
     close.addEventListener('click', closeLightbox);
     prev.addEventListener('click', () => move(-1));
     next.addEventListener('click', () => move(1));
