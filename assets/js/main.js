@@ -22,7 +22,7 @@ const lightbox = document.querySelector('#galleryLightbox');
 
 if (galleryItems.length && galleryFilters.length) {
   let currentFilter = 'all';
-  let visibleItems = [...galleryItems];
+  let visibleItems = galleryItems.filter(item => item.dataset.full);
   let currentIndex = 0;
 
   const updateFilter = (filter) => {
@@ -33,7 +33,7 @@ if (galleryItems.length && galleryFilters.length) {
       const show = filter === 'all' || categories.includes(filter);
       item.hidden = !show;
     });
-    visibleItems = galleryItems.filter(item => !item.hidden);
+    visibleItems = galleryItems.filter(item => !item.hidden && item.dataset.full);
     if (galleryCount) galleryCount.textContent = `${visibleItems.length} PHOTOS`;
   };
 
@@ -50,7 +50,7 @@ if (galleryItems.length && galleryFilters.length) {
 
     const renderLightbox = () => {
       const item = visibleItems[currentIndex];
-      if (!item) return;
+      if (!item || !item.dataset.full) return;
 
       // Use the already-resolved thumbnail URL as the base for the full image.
       // This works both on local/GitHub Pages and in file-preview environments
@@ -72,14 +72,14 @@ if (galleryItems.length && galleryFilters.length) {
     };
 
     const openLightbox = (item) => {
-      visibleItems = galleryItems.filter(el => !el.hidden);
+      visibleItems = galleryItems.filter(el => !el.hidden && el.dataset.full);
       currentIndex = Math.max(0, visibleItems.indexOf(item));
       lastFocused = document.activeElement;
       renderLightbox();
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.classList.add('lightbox-open');
-      close.focus();
+      if (close) close.focus();
     };
 
     const closeLightbox = () => {
@@ -96,9 +96,9 @@ if (galleryItems.length && galleryFilters.length) {
     };
 
     galleryItems.filter(item => item.dataset.full).forEach(item => item.addEventListener('click', () => openLightbox(item)));
-    close.addEventListener('click', closeLightbox);
-    prev.addEventListener('click', () => move(-1));
-    next.addEventListener('click', () => move(1));
+    if (close) close.addEventListener('click', closeLightbox);
+    if (prev) prev.addEventListener('click', () => move(-1));
+    if (next) next.addEventListener('click', () => move(1));
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
     });
