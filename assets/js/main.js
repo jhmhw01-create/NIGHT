@@ -13,6 +13,28 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+// Keep Taehoon's legacy site key (`taehun`) compatible with newer assets.
+document.querySelectorAll('.gallery-item').forEach((item) => {
+  const categories = (item.dataset.category || '').split(/\s+/);
+  if (categories.includes('taehoon')) {
+    item.dataset.category = categories.map((category) => category === 'taehoon' ? 'taehun' : category).join(' ');
+  }
+
+  const image = item.querySelector('img');
+  if (!image) return;
+
+  image.addEventListener('error', () => {
+    const currentPath = image.getAttribute('src') || '';
+    const fallbackPath = currentPath.includes('taehoon')
+      ? currentPath.replace('taehoon', 'taehun')
+      : currentPath.includes('taehun')
+        ? currentPath.replace('taehun', 'taehoon')
+        : '';
+
+    if (fallbackPath && fallbackPath !== currentPath) image.src = fallbackPath;
+  }, { once: true });
+});
+
 
 // Gallery v03
 const galleryItems = [...document.querySelectorAll('.gallery-item')];
