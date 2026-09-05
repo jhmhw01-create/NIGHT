@@ -7,6 +7,61 @@
 <title>NIGHT — Discography</title>
 <meta content="NIGHT official discography archive." name="description"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
+
+<style>
+/* PHANTOM 09.07 tracklist inline */
+.phantom-tracklist-meta{grid-column:1/-1}
+.phantom-tracklist{
+  list-style:none;
+  margin:10px 0 0;
+  padding:0;
+  display:grid;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.phantom-tracklist li{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.phantom-tracklist li b{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.12em;
+}
+.phantom-tracklist li strong{
+  color:#ddd8e8;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+.phantom-tracklist li em{
+  padding:4px 8px;
+  border:1px solid rgba(184,168,255,.34);
+  border-radius:999px;
+  color:#c8b7ee;
+  font-size:7px;
+  font-style:normal;
+  letter-spacing:.15em;
+}
+</style>
+
+
+<style>
+/* PHANTOM 09.08 package preview inline */
+.phantom-package-preview{margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:minmax(0,.78fr) minmax(320px,1.22fr);gap:28px;align-items:start}
+.phantom-package-copy span{display:block;margin-bottom:8px;color:var(--purple-soft);font-size:8px;letter-spacing:.16em}
+.phantom-package-copy h3{margin:0 0 12px;color:#eeeaf5;font-family:Georgia,"Times New Roman",serif;font-size:24px;font-weight:500}
+.phantom-package-copy p{margin:0;color:var(--muted);font-size:11px;line-height:1.8}
+.phantom-package-preview a{display:block;border:1px solid rgba(184,168,255,.16);overflow:hidden}
+.phantom-package-preview img{display:block;width:100%;height:auto}
+@media(max-width:860px){.phantom-package-preview{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body>
 <header class="site-header">
@@ -51,13 +106,34 @@
     <div><span>RELEASE</span><strong>2026.09.14 · 18:00 KST</strong></div>
     <div><span>LINE-UP</span><strong>DOHA · IHWAN · JIWOO · WOOHYUN · TAEHOON</strong></div>
     <div><span>TITLE TRACK</span><strong>ILLUSION</strong></div>
-    <div><span>TRACKS</span><strong>To be revealed · 2026.09.07</strong></div>
+    <div class="phantom-tracklist-meta">
+      <span>TRACKS</span>
+      <ol class="phantom-tracklist">
+        <li><b>01</b><strong>VEIL</strong></li>
+        <li class="is-title"><b>02</b><strong>ILLUSION</strong><em>TITLE</em></li>
+        <li><b>03</b><strong>MOONWATER</strong></li>
+        <li><b>04</b><strong>AFTERIMAGE</strong></li>
+        <li><b>05</b><strong>NEON RAIN</strong></li>
+        <li><b>06</b><strong>REFLECTION</strong></li>
+      </ol>
+    </div>
   </div>
 
   <div class="era-note">
     <span>ERA NOTE</span>
-    <p>현실과 허상의 경계를 중심으로 전개되는 NIGHT의 새로운 챕터. 세부 트랙 정보와 앨범 패키지는 공식 컴백 스케줄에 따라 순차 공개된다.</p>
+    <p>현실과 허상의 경계를 중심으로 전개되는 NIGHT의 새로운 챕터. 트랙리스트가 공개되며 PHANTOM의 음악적 윤곽이 드러나기 시작한다. 앨범 패키지와 이후 콘텐츠는 공식 컴백 스케줄에 따라 순차 공개된다.</p>
   </div>
+
+<div class="phantom-package-preview">
+  <div class="phantom-package-copy">
+    <span>PACKAGE PREVIEW · 2026.09.08</span>
+    <h3>PHANTOM FULL PACKAGE</h3>
+    <p>PHANTOM의 앨범 패키지 구성이 공개되었다. 포토북과 포토카드 세트, 미러 카드, 북마크, 포스트카드, 폴디드 포스터, 리릭 시트 등으로 구성된다.</p>
+  </div>
+  <a href="assets/images/phantom-package-preview-0908.png" target="_blank" rel="noopener noreferrer" aria-label="PHANTOM FULL PACKAGE PREVIEW 크게 보기">
+    <img src="assets/images/phantom-package-preview-0908.png" alt="NIGHT PHANTOM FULL PACKAGE PREVIEW" loading="lazy"/>
+  </a>
+</div>
 </article>
 
 <article class="album-card reveal">
@@ -68,7 +144,7 @@
 <p class="album-tagline">“자정이 지난 순간, NIGHT의 시간이 시작된다.”</p>
 <p class="album-concept">도시의 심야, 네온과 어둠 사이에서 시작된 NIGHT의 첫 장면.</p>
 <div class="album-meta">
-  <div><small>RELEASE</small><strong>1ST YEAR · DEBUT ERA</strong></div>
+  <div><small>RELEASE</small><strong>2022.11.15 · DEBUT</strong></div>
   <div><small>LINE-UP</small><strong>DOHA · IHWAN · JIWOO · WOOHYUN · ANGELO</strong></div>
   <div><small>TITLE TRACK</small><strong>After Midnight</strong></div>
   <div><small>TRACKS</small><strong>5 TRACKS</strong></div>
