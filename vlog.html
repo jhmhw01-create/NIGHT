@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NIGHT VLOG — Off the stage</title>
+  <meta name="description" content="NIGHT의 일상을 사진으로 이어 보는 브이로그. 개인 5편과 함께하는 저녁 만들기."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/vlog.css"/>
+</head>
+<body class="vlog-page">
+<header class="site-header"><nav class="nav container">
+  <a class="brand" href="index.html">N<span>I</span>GHT</a>
+  <button type="button" aria-label="메뉴 열기" class="menu-toggle">☰</button>
+  <div class="nav-links"><a href="index.html">HOME</a><a href="index.html#members">MEMBERS</a><a href="discography.html">DISCOGRAPHY</a><a href="history.html">HISTORY</a><a href="listen.html">LISTEN</a><a href="gallery.html">GALLERY</a><a href="notice.html">NOTICE</a><a href="fanclub.html">FANCLUB</a></div>
+</nav></header>
+<main class="container vlog-main">
+  <div class="vlog-heading"><div><p class="vlog-kicker">OFF THE STAGE / 06 EPISODES</p><h1>NIGHT VLOG</h1></div><p>사진으로 이어 보는, 우리의 하루.<br><span>이미지 슬라이드 · 음성 없음</span></p></div>
+  <div class="vlog-layout">
+    <section class="vlog-watch" aria-label="브이로그 감상">
+      <div class="vlog-player" id="vlogPlayer" tabindex="0" aria-label="사진 브이로그 플레이어">
+        <div class="vlog-screen" id="vlogScreen">
+          <img id="vlogFrame" src="assets/images/vlog/night/full/scene-00.webp" alt="NIGHT 저녁 만들기 첫 장면" fetchpriority="high"/>
+          <p class="vlog-screen-status" id="vlogStatus" role="status" hidden></p>
+        </div>
+        <div class="vlog-controls">
+          <label class="vlog-sr-only" for="vlogSeek">재생 위치</label><input id="vlogSeek" type="range" min="0" max="78" value="0" step="0.1" aria-valuetext="0초"/>
+          <div class="vlog-control-row">
+            <button id="vlogPlay" type="button" aria-label="재생">▶ 재생</button>
+            <button id="vlogPrev" type="button" aria-label="이전 장면">이전</button>
+            <button id="vlogNext" type="button" aria-label="다음 장면">다음</button>
+            <span id="vlogTime" class="vlog-time">00:00 / 01:18</span>
+            <span id="vlogScene" class="vlog-scene">01 / 13</span>
+          </div>
+        </div>
+      </div>
+      <div class="vlog-episode-head"><p class="vlog-kicker" id="vlogOwner">NIGHT / TOGETHER</p><h2 id="vlogTitle">오늘 저녁은 우리가 만들게</h2><p id="vlogDescription">다섯 멤버가 함께 준비하는 숙소의 저녁.</p></div>
+      <p class="vlog-help">장면당 6초 · 사진을 더 보고 싶다면 일시정지해 주세요.</p>
+      <nav class="vlog-scenes" id="vlogScenes" aria-label="장면 바로 이동"></nav>
+      <section class="vlog-reactions" aria-labelledby="reactionHeading"><div><p class="vlog-kicker">AFTER WATCHING</p><h2 id="reactionHeading">LUNA REACTIONS</h2><p>함께 보는 팬 반응 이미지</p></div><a id="vlogReactionLink" href="assets/images/vlog/night/full/reactions.webp" target="_blank" rel="noopener"><img id="vlogReaction" src="assets/images/vlog/night/full/reactions.webp" alt="NIGHT 저녁 만들기 팬 반응 이미지" loading="lazy"/><span>원본 크게 보기 ↗</span></a></section>
+    </section>
+    <aside class="vlog-playlist" aria-labelledby="playlistHeading"><h2 id="playlistHeading">EPISODES <span>6</span></h2><div id="vlogEpisodes"></div></aside>
+  </div>
+  <noscript><p>재생과 장면 선택에는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</p></noscript>
+</main>
+<footer class="site-footer"><div class="footer-inner container"><span>© CASTLE ENTERTAINMENT. ALL RIGHTS RESERVED.</span><a href="index.html">BACK TO HOME</a></div></footer>
+<script src="assets/js/main.js"></script><script src="assets/js/vlog.js"></script>
+</body>
+</html>
