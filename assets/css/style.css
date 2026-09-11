@@ -584,10 +584,24 @@ body.lightbox-open { overflow: hidden; }
   letter-spacing:.16em;
   font-weight:500;
 }
+.home-contents-card{
+  grid-column:1 / -1;
+  min-height:285px;
+  background:
+    linear-gradient(90deg,rgba(6,6,13,.95),rgba(6,6,13,.63) 58%,rgba(6,6,13,.3)),
+    url('../images/vlog/night/full/scene-00.webp') center 42%/cover no-repeat;
+}
+.home-contents-card:hover{
+  background:
+    linear-gradient(90deg,rgba(6,6,13,.91),rgba(6,6,13,.56) 58%,rgba(6,6,13,.22)),
+    url('../images/vlog/night/full/scene-00.webp') center 42%/cover no-repeat;
+}
+.home-contents-card p{max-width:570px;color:#d4cede}
 @media(max-width:720px){
   .home-archive-grid{grid-template-columns:1fr}
   .home-archive-card{min-height:205px;padding:24px 22px}
   .home-archive-card p{min-height:0}
+  .home-contents-card{grid-column:auto;min-height:245px;background-position:62% center}
 }
 
 
