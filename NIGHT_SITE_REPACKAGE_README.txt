@@ -30,6 +30,12 @@ NIGHT SITE REPACKAGE PATCH
    - 페이지 이동 시 어둠으로 이어지는 전환
    - 모바일 및 모션 감소 환경 자동 대응
 
+6. ERA ARCHIVE 확장
+   - AFTER MIDNIGHT부터 PHANTOM까지 7개 시대 타임라인
+   - 각 시대 카드에서 디스코그래피 상세 위치로 바로 이동
+   - HOME 및 DISCOGRAPHY에 ERA ARCHIVE 진입 링크 추가
+   - NO SIGNAL은 4인 체제 상징 그래픽, NEW MOON 이후는 TAEHOON 합류 후 현 5인 이미지 사용
+
 적용 방법
 - ZIP의 폴더 구조를 유지한 채 GitHub 저장소 최상위에 업로드하고 덮어씁니다.
 - 기존 assets/images 폴더는 삭제하지 마세요. 새 페이지가 기존 이미지를 재사용합니다.
