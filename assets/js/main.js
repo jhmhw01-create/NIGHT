@@ -13,99 +13,12 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// NIGHT identity motion: moonlight, afterimage and water reflections.
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!reduceMotion) {
-  const veil = document.createElement('div');
-  veil.className = 'night-page-veil';
-  veil.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(veil);
-  requestAnimationFrame(() => requestAnimationFrame(() => veil.classList.add('is-ready')));
-
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (finePointer) {
-    const moonlight = document.createElement('div');
-    moonlight.className = 'night-cursor-light';
-    moonlight.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(moonlight);
-
-    let cursorX = window.innerWidth / 2;
-    let cursorY = window.innerHeight / 2;
-    let cursorFrame = 0;
-    window.addEventListener('pointermove', (event) => {
-      cursorX = event.clientX;
-      cursorY = event.clientY;
-      moonlight.classList.add('is-active');
-      if (cursorFrame) return;
-      cursorFrame = requestAnimationFrame(() => {
-        moonlight.style.transform = `translate3d(${cursorX - 215}px,${cursorY - 215}px,0)`;
-        cursorFrame = 0;
-      });
-    }, { passive: true });
-    document.documentElement.addEventListener('mouseleave', () => moonlight.classList.remove('is-active'));
-  }
-
-  const titleObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('night-title-awake');
-      entry.target.addEventListener('animationend', () => entry.target.classList.remove('night-title-awake'), { once: true });
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.45 });
-  document.querySelectorAll('.hero-title, .section-title, .member-title, .contents-hero h1, .era-hero h1, .awards-hero h1, .travel-hero h1, .behind-hero h1, .medley-hero h1').forEach((title) => titleObserver.observe(title));
-
-  document.addEventListener('pointerdown', (event) => {
-    if (!event.target.closest('a, button, summary, .gallery-item')) return;
-    const ring = document.createElement('span');
-    ring.className = 'night-water-ring';
-    ring.setAttribute('aria-hidden', 'true');
-    ring.style.left = `${event.clientX}px`;
-    ring.style.top = `${event.clientY}px`;
-    document.body.appendChild(ring);
-    ring.addEventListener('animationend', () => ring.remove(), { once: true });
-  }, { passive: true });
-
-  document.addEventListener('click', (event) => {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const link = event.target.closest('a[href]');
-    if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
-    const href = link.getAttribute('href') || '';
-    if (!href || href.startsWith('#') || /^(?:mailto:|tel:|javascript:)/i.test(href)) return;
-
-    const destination = new URL(link.href, window.location.href);
-    if (destination.origin !== window.location.origin) return;
-    if (destination.pathname === window.location.pathname && destination.hash) return;
-
-    event.preventDefault();
-    veil.classList.remove('is-ready');
-    veil.classList.add('is-leaving');
-    window.setTimeout(() => { window.location.href = destination.href; }, 240);
-  });
+// PHANTOM release state · 2026.09.14
+const phantomReleaseCard = document.querySelector('.discography-card.upcoming-album');
+if (phantomReleaseCard) {
+  const phantomReleaseType = phantomReleaseCard.querySelector('.discography-type');
+  if (phantomReleaseType) phantomReleaseType.textContent = '4TH MINI ALBUM · RELEASED';
 }
-
-// Keep Taehoon's legacy site key (`taehun`) compatible with newer assets.
-document.querySelectorAll('.gallery-item').forEach((item) => {
-  const categories = (item.dataset.category || '').split(/\s+/);
-  if (categories.includes('taehoon')) {
-    item.dataset.category = categories.map((category) => category === 'taehoon' ? 'taehun' : category).join(' ');
-  }
-
-  const image = item.querySelector('img');
-  if (!image) return;
-
-  image.addEventListener('error', () => {
-    const currentPath = image.getAttribute('src') || '';
-    const fallbackPath = currentPath.includes('taehoon')
-      ? currentPath.replace('taehoon', 'taehun')
-      : currentPath.includes('taehun')
-        ? currentPath.replace('taehun', 'taehoon')
-        : '';
-
-    if (fallbackPath && fallbackPath !== currentPath) image.src = fallbackPath;
-  }, { once: true });
-});
 
 
 // Gallery v03

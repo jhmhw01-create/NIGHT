@@ -38,7 +38,6 @@ body::before {
   background-size: 88px 88px, 126px 126px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 80%);
   z-index: -1;
-  animation: night-sky-drift 26s linear infinite;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -135,88 +134,6 @@ img { max-width: 100%; display: block; }
 .reveal { opacity: 0; transform: translateY(18px); transition: .75s ease; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* NIGHT identity motion — moonlight, afterimage and water */
-.night-cursor-light{
-  position:fixed;
-  left:0;
-  top:0;
-  z-index:4;
-  width:430px;
-  height:430px;
-  border-radius:50%;
-  pointer-events:none;
-  opacity:0;
-  transform:translate3d(-50%,-50%,0);
-  background:radial-gradient(circle,rgba(184,168,255,.13) 0%,rgba(122,92,255,.065) 28%,transparent 68%);
-  mix-blend-mode:screen;
-  transition:opacity .6s ease;
-  will-change:transform;
-}
-.night-cursor-light.is-active{opacity:1}
-.night-page-veil{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  pointer-events:none;
-  opacity:1;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(72,48,130,.34),transparent 28%),
-    #030308;
-  transition:opacity .58s cubic-bezier(.22,.7,.25,1);
-}
-.night-page-veil.is-ready{opacity:0}
-.night-page-veil.is-leaving{opacity:1;transition-duration:.26s}
-.night-water-ring{
-  position:fixed;
-  z-index:9998;
-  width:18px;
-  height:18px;
-  margin:-9px 0 0 -9px;
-  border:1px solid rgba(211,203,255,.72);
-  border-radius:50%;
-  pointer-events:none;
-  box-shadow:0 0 18px rgba(122,92,255,.2),inset 0 0 12px rgba(184,168,255,.12);
-  animation:night-water-ring .72s cubic-bezier(.2,.7,.2,1) forwards;
-}
-.night-title-awake{animation:night-title-awake 1.35s ease-out both}
-.nav-links a{position:relative}
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  right:50%;
-  bottom:-8px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--purple-soft),transparent);
-  box-shadow:0 0 8px rgba(184,168,255,.65);
-  transition:left .25s ease,right .25s ease;
-}
-.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{left:0;right:0}
-.home-archive-card:hover,.content-card:hover,.album-card:hover,.listen-card:hover{
-  box-shadow:0 14px 45px rgba(15,8,38,.34),0 0 24px rgba(122,92,255,.07);
-}
-@keyframes night-sky-drift{
-  from{background-position:0 0,38px 52px}
-  to{background-position:88px 88px,-88px 178px}
-}
-@keyframes night-water-ring{
-  0%{opacity:.8;transform:scale(.45)}
-  62%{opacity:.42}
-  100%{opacity:0;transform:scale(7)}
-}
-@keyframes night-title-awake{
-  0%{text-shadow:0 0 0 rgba(184,168,255,0)}
-  38%{text-shadow:0 0 13px rgba(224,217,255,.38),0 0 36px rgba(122,92,255,.35)}
-  100%{text-shadow:var(--glow)}
-}
-@media (hover:none),(pointer:coarse){.night-cursor-light{display:none}}
-@media (prefers-reduced-motion:reduce){
-  body::before{animation:none}
-  .night-cursor-light,.night-water-ring{display:none}
-  .night-page-veil{display:none}
-  .night-title-awake{animation:none}
-}
-
 @media (max-width: 1000px) {
   .member-grid { grid-template-columns: repeat(2, 1fr); }
   .member-card:last-child { grid-column: 1 / -1; min-height: 520px; }
@@ -228,7 +145,6 @@ img { max-width: 100%; display: block; }
   .menu-toggle { display:block; }
   .nav-links { position:absolute; left:0; right:0; top:72px; display:none; flex-direction:column; align-items:flex-start; padding:20px; background:rgba(6,6,13,.96); border-bottom:1px solid var(--line); }
   .nav-links.open { display:flex; }
-  .nav-links a::after{bottom:3px}
   .hero-content { padding-top: 90px; }
   .section { padding: 72px 0; }
   .section-head { align-items:flex-start; flex-direction:column; }
@@ -342,8 +258,6 @@ body.lightbox-open { overflow: hidden; }
 /* Discography v01 */
 .discography-hero { padding-top: 104px; padding-bottom: 34px; }
 .discography-hero .section-desc { margin-top: 14px; }
-.discography-era-link{display:inline-block;margin-top:22px;color:#dcd4f7;font-size:11px;letter-spacing:.16em;border-bottom:1px solid rgba(184,168,255,.28);padding-bottom:5px}
-.discography-era-link:hover{color:#fff;border-color:var(--purple-soft)}
 .discography-section { padding-top: 28px; }
 .discography-list { display: grid; gap: 18px; }
 .album-card {
@@ -683,22 +597,11 @@ body.lightbox-open { overflow: hidden; }
     url('../images/vlog/night/full/scene-00.webp') center 42%/cover no-repeat;
 }
 .home-contents-card p{max-width:570px;color:#d4cede}
-.home-archive-shortcuts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.home-archive-shortcuts .home-era-shortcut{min-width:0;align-items:flex-start;flex-direction:column;gap:18px}
-.home-era-shortcut{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:23px 28px;border:1px solid var(--line);background:linear-gradient(90deg,rgba(122,92,255,.075),rgba(255,255,255,.012));transition:border-color .25s ease,background .25s ease,transform .25s ease}
-.home-era-shortcut:hover{transform:translateY(-2px);border-color:rgba(184,168,255,.36);background:linear-gradient(90deg,rgba(122,92,255,.12),rgba(255,255,255,.018))}
-.home-era-shortcut span{display:flex;flex-direction:column;gap:3px}
-.home-era-shortcut small{color:var(--purple-soft);font-size:10px;letter-spacing:.17em}
-.home-era-shortcut strong{font-family:Georgia,"Times New Roman",serif;font-size:20px;font-weight:500;letter-spacing:.035em}
-.home-era-shortcut>b{flex:0 0 auto;color:#dcd4f5;font-size:10px;letter-spacing:.15em;font-weight:500}
-.home-awards-shortcut{background:linear-gradient(90deg,rgba(203,196,222,.065),rgba(122,92,255,.045))}
 @media(max-width:720px){
   .home-archive-grid{grid-template-columns:1fr}
   .home-archive-card{min-height:205px;padding:24px 22px}
   .home-archive-card p{min-height:0}
   .home-contents-card{grid-column:auto;min-height:245px;background-position:62% center}
-  .home-archive-shortcuts{grid-template-columns:1fr}
-  .home-era-shortcut{align-items:flex-start;flex-direction:column;padding:21px 22px}
 }
 
 
@@ -997,5 +900,3 @@ a.gallery-item{
 .luna-kit-list li::before{content:"";position:absolute;left:0;top:.67em;width:4px;height:4px;border-radius:50%;background:rgba(184,168,255,.58)}
 @media(max-width:860px){.luna-archive-grid{grid-template-columns:1fr;gap:26px}}
 @media(max-width:620px){.luna-archive-card{padding:24px 20px}.luna-archive-header{flex-direction:column;gap:12px}.luna-period{text-align:left}.luna-archive-header h3{font-size:25px}.luna-kit-list{grid-template-columns:1fr}}
-
-.history-archive-links{display:flex;gap:24px;flex-wrap:wrap}.luna-archive-poster{display:block;position:relative;max-width:480px;margin:0 auto 30px}.luna-archive-poster img{width:100%;height:auto;object-fit:contain}
