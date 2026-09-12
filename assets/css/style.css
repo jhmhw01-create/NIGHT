@@ -997,3 +997,5 @@ a.gallery-item{
 .luna-kit-list li::before{content:"";position:absolute;left:0;top:.67em;width:4px;height:4px;border-radius:50%;background:rgba(184,168,255,.58)}
 @media(max-width:860px){.luna-archive-grid{grid-template-columns:1fr;gap:26px}}
 @media(max-width:620px){.luna-archive-card{padding:24px 20px}.luna-archive-header{flex-direction:column;gap:12px}.luna-period{text-align:left}.luna-archive-header h3{font-size:25px}.luna-kit-list{grid-template-columns:1fr}}
+
+.history-archive-links{display:flex;gap:24px;flex-wrap:wrap}.luna-archive-poster{display:block;position:relative;max-width:480px;margin:0 auto 30px}.luna-archive-poster img{width:100%;height:auto;object-fit:contain}
