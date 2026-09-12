@@ -54,7 +54,7 @@ if (!reduceMotion) {
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.45 });
-  document.querySelectorAll('.hero-title, .section-title, .member-title, .contents-hero h1, .era-hero h1, .travel-hero h1, .behind-hero h1, .medley-hero h1').forEach((title) => titleObserver.observe(title));
+  document.querySelectorAll('.hero-title, .section-title, .member-title, .contents-hero h1, .era-hero h1, .awards-hero h1, .travel-hero h1, .behind-hero h1, .medley-hero h1').forEach((title) => titleObserver.observe(title));
 
   document.addEventListener('pointerdown', (event) => {
     if (!event.target.closest('a, button, summary, .gallery-item')) return;

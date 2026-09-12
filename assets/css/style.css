@@ -683,17 +683,21 @@ body.lightbox-open { overflow: hidden; }
     url('../images/vlog/night/full/scene-00.webp') center 42%/cover no-repeat;
 }
 .home-contents-card p{max-width:570px;color:#d4cede}
-.home-era-shortcut{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-top:14px;padding:23px 28px;border:1px solid var(--line);background:linear-gradient(90deg,rgba(122,92,255,.075),rgba(255,255,255,.012));transition:border-color .25s ease,background .25s ease,transform .25s ease}
+.home-archive-shortcuts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.home-archive-shortcuts .home-era-shortcut{min-width:0;align-items:flex-start;flex-direction:column;gap:18px}
+.home-era-shortcut{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:23px 28px;border:1px solid var(--line);background:linear-gradient(90deg,rgba(122,92,255,.075),rgba(255,255,255,.012));transition:border-color .25s ease,background .25s ease,transform .25s ease}
 .home-era-shortcut:hover{transform:translateY(-2px);border-color:rgba(184,168,255,.36);background:linear-gradient(90deg,rgba(122,92,255,.12),rgba(255,255,255,.018))}
 .home-era-shortcut span{display:flex;flex-direction:column;gap:3px}
 .home-era-shortcut small{color:var(--purple-soft);font-size:10px;letter-spacing:.17em}
 .home-era-shortcut strong{font-family:Georgia,"Times New Roman",serif;font-size:20px;font-weight:500;letter-spacing:.035em}
 .home-era-shortcut>b{flex:0 0 auto;color:#dcd4f5;font-size:10px;letter-spacing:.15em;font-weight:500}
+.home-awards-shortcut{background:linear-gradient(90deg,rgba(203,196,222,.065),rgba(122,92,255,.045))}
 @media(max-width:720px){
   .home-archive-grid{grid-template-columns:1fr}
   .home-archive-card{min-height:205px;padding:24px 22px}
   .home-archive-card p{min-height:0}
   .home-contents-card{grid-column:auto;min-height:245px;background-position:62% center}
+  .home-archive-shortcuts{grid-template-columns:1fr}
   .home-era-shortcut{align-items:flex-start;flex-direction:column;padding:21px 22px}
 }
 

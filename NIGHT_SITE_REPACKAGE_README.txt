@@ -36,6 +36,13 @@ NIGHT SITE REPACKAGE PATCH
    - HOME 및 DISCOGRAPHY에 ERA ARCHIVE 진입 링크 추가
    - NO SIGNAL은 4인 체제 상징 그래픽, NEW MOON 이후는 TAEHOON 합류 후 현 5인 이미지 사용
 
+7. AWARDS & ACHIEVEMENTS 추가
+   - 2022.11.15 데뷔부터 2026년 상반기까지 대표 수상 및 커리어 기록 정리
+   - AWARDS와 ACHIEVEMENTS를 분리한 공식 기록 아카이브
+   - Billboard 세부 차트명·순위 및 미확정 시상식명·트로피 수량은 임의 표기하지 않음
+   - PHANTOM 이후 수상 기록 제외, 2026년 상반기 기준 대상 미수상 상태 명시
+   - HOME 및 HISTORY에서 전용 페이지로 연결
+
 적용 방법
 - ZIP의 폴더 구조를 유지한 채 GitHub 저장소 최상위에 업로드하고 덮어씁니다.
 - 기존 assets/images 폴더는 삭제하지 마세요. 새 페이지가 기존 이미지를 재사용합니다.
