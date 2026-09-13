@@ -20,6 +20,27 @@ if (phantomReleaseCard) {
   if (phantomReleaseType) phantomReleaseType.textContent = '4TH MINI ALBUM · RELEASED';
 }
 
+// PRESS ARCHIVE · PHANTOM feature is preserved as a collapsible 2026 archive article.
+const phantomFeature = document.querySelector('.press-page #article-10.current-feature');
+if (phantomFeature && phantomFeature.tagName !== 'DETAILS') {
+  const details = document.createElement('details');
+  details.id = phantomFeature.id;
+  details.className = 'current-feature phantom-feature-archive';
+
+  const summary = document.createElement('summary');
+  summary.innerHTML = '<time datetime="2026-09-14">2026.09.14</time><span class="press-category">FEATURE</span><span class="press-overview"><strong class="press-headline">NIGHT, 다시 밤을 뒤흔든다 — ‘PHANTOM’으로 펼쳐낼 가장 치명적인 환상</strong><span class="press-summary">4th Mini Album ‘PHANTOM’과 타이틀곡 ‘ILLUSION’. 현실과 환상의 경계를 흐리는 NIGHT의 2026년 특집 기사.</span></span><span class="press-toggle" aria-hidden="true"></span>';
+
+  const expanded = document.createElement('div');
+  expanded.className = 'phantom-feature-expanded';
+  const oldLabel = phantomFeature.querySelector('.feature-label');
+  if (oldLabel) oldLabel.remove();
+  while (phantomFeature.firstChild) expanded.appendChild(phantomFeature.firstChild);
+
+  details.appendChild(summary);
+  details.appendChild(expanded);
+  phantomFeature.replaceWith(details);
+}
+
 
 // Gallery v03
 const galleryItems = [...document.querySelectorAll('.gallery-item')];
