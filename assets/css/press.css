@@ -73,3 +73,25 @@
 .feature-reactions p{margin:6px 0 0;font-size:1rem;color:#d8d5df;line-height:1.8;overflow-wrap:anywhere}
 .archive-heading{margin:0 0 14px}.press-records>.container>.press-help{margin:0 0 24px}
 @media(max-width:600px){.feature-hero{min-height:630px;align-items:flex-end}.feature-hero>img{object-position:35% center}.feature-hero::before{background:linear-gradient(0deg,rgba(0,0,0,.28),transparent 85%)}.feature-hero-copy{padding:40px 0}.feature-hero h2{font-size:2rem}.feature-subhead br{display:none}.feature-reading{margin-top:38px}.feature-tracks{grid-template-columns:1fr;gap:22px}}
+
+/* 2029 archive chronology: newest major news first, PHANTOM retained as an archive feature. */
+.press-page main{display:flex;flex-direction:column}
+.press-page main>.press-hero{order:0}
+.press-page main>section.press-records:nth-of-type(2){order:1}
+.press-page main>.current-feature{order:2}
+.press-page main>section.press-records:nth-of-type(3){order:3}
+.press-page main>section.press-records:nth-of-type(2)>.container{display:flex;flex-direction:column}
+.press-page main>section.press-records:nth-of-type(2) .archive-heading{order:0}
+.press-page main>section.press-records:nth-of-type(2) .press-help{order:1}
+.press-page main>section.press-records:nth-of-type(2) .press-column-labels{order:2}
+.press-page main>section.press-records:nth-of-type(2) #article-19{order:3}
+.press-page main>section.press-records:nth-of-type(2) #article-18{order:4}
+.press-page main>section.press-records:nth-of-type(2) #article-17{order:5}
+.press-page main>section.press-records:nth-of-type(2) #article-16{order:6}
+.press-page main>section.press-records:nth-of-type(2) #article-15{order:7}
+.press-page main>section.press-records:nth-of-type(2) #article-14{order:8}
+.press-page main>section.press-records:nth-of-type(2) #article-13{order:9}
+.press-page main>section.press-records:nth-of-type(2) #article-12{order:10}
+.press-page main>section.press-records:nth-of-type(2) #article-11{order:11}
+.current-feature .feature-label{font-size:0}
+.current-feature .feature-label::after{content:"ARCHIVE FEATURE · 2026";font-size:.75rem;letter-spacing:.2em}
