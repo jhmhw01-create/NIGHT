@@ -4,7 +4,7 @@ NIGHT SITE v0.6 — FINAL
 2) 최종 범위: HOME + 현재 멤버 5인 소개 페이지 + GALLERY + FANCLUB.
 3) 공식 팬클럽명: LUNA
 4) 공식 응원봉명: MOONLIGHT
-5) 일부러 제외한 것: 은호/안젤로 아카이브, 디스코그래피, 회사 소개, 뉴스, 스케줄.
+5) 일부러 제외한 것: 안젤로 아카이브, 디스코그래피, 회사 소개, 뉴스, 스케줄.
 
 [v0.4]
 - Added GALLERY page with filters: ALL/GROUP/JIWOO/WOOHYUN/IHWAN/DOHA/TAEHOON.
