@@ -95,3 +95,14 @@
 .press-page main>section.press-records:nth-of-type(2) #article-11{order:11}
 .current-feature .feature-label{font-size:0}
 .current-feature .feature-label::after{content:"ARCHIVE FEATURE · 2026";font-size:.75rem;letter-spacing:.2em}
+
+/* PHANTOM feature: compact archive row by default, original feature preserved on expand. */
+.phantom-feature-archive{border-top:1px solid var(--silver);border-bottom:1px solid var(--line)}
+.phantom-feature-archive>summary{display:grid;grid-template-columns:120px 85px minmax(0,1fr) 22px;gap:24px;padding:30px max(20px,calc((100% - 1180px)/2));list-style:none;cursor:pointer;align-items:start;transition:background .2s}
+.phantom-feature-archive>summary::-webkit-details-marker{display:none}
+.phantom-feature-archive>summary:hover,.phantom-feature-archive[open]>summary{background:#101016}
+.phantom-feature-archive>summary:focus-visible{outline:2px solid var(--purple-soft);outline-offset:-2px}
+.phantom-feature-archive>summary time{font-size:.875rem;color:var(--silver);font-variant-numeric:tabular-nums;white-space:nowrap}
+.phantom-feature-archive .phantom-feature-expanded{border-top:1px solid var(--line)}
+.phantom-feature-archive .feature-reading{margin-bottom:80px}
+@media(max-width:760px){.phantom-feature-archive>summary{grid-template-columns:auto 1fr 20px;gap:12px 18px;padding:24px 14px}.phantom-feature-archive>summary .press-overview{grid-column:1/3;grid-row:2}.phantom-feature-archive>summary .press-toggle{grid-column:3;grid-row:1}}
