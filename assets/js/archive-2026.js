@@ -44,3 +44,4 @@
     if (event.key === 'ArrowRight') move(1);
   });
 })();
+
